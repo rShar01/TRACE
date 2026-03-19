@@ -2,6 +2,9 @@
 uv venv --python 3.10
 uv pip install -r requirements.txt
 
+# Load Copilot data to data/outcomes_data.csv
+# Add MY_OPENROUTER and OPENAI_API_KEY variables to experiment_config/gemini-2.5-pro.yaml
+
 # Get judge preference results
 python -m judge_preference.evaluate_preference \
     --experiment_config experiment_config/gemini-2.5-pro.yaml
