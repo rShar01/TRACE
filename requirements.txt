@@ -1,0 +1,16 @@
+anthropic
+faiss-cpu
+matplotlib
+numpy
+omegaconf
+openai
+pandas
+pyyaml
+requests
+scikit-learn
+scipy
+tenacity
+torch
+tqdm
+transformers
+datasets

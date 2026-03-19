@@ -1,0 +1,33 @@
+dataset: "copilot"
+data_path: "data/outcomes_data.csv"
+model: "gemini-2.5-pro" # LLM judge, specify configuration in model_configs/
+
+# ADD API KEYS HERE
+api_keys:
+  OPENAI_API_KEY: "example"
+
+judge_preference:
+  prompt_name: "copilot/pairwise"
+  save_file: "results/judge_preference/copilot/gemini-2.5-pro/pairwise_judge.csv"
+  num_samples: 15
+
+rubric_analysis:
+  num_samples: 100 # samples from judge preference 
+  output_dir: "results/rubric_analysis/copilot/gemini-2.5-pro"
+
+  proposer:
+    iterations: 2 # number of iterations to run analysis (set to 0 to skip proposal)
+
+    initial_rubrics: [] # Add additional rubrics in the format "<RUBRIC>: High -> <DESC>, LOW -> <DESC>"
+    num_rubrics: 3 # number of rubrics per iteration
+
+    num_samples: 5 # number of samples to use when proposing rubrics
+    model: "gpt-4o-mini"
+    batch_size: 5 # number of samples to use for each batch (LLM call) in the rubric proposal.
+
+  ranker: 
+    skip_ranking: false # return error if rubric_df.csv doesn't exist in output dir
+    single_position_rank: false # If true, only ranks model outputs in one position order. This is faster but may introduce position bias in the analysis.
+    model: "gpt-4o-mini"
+    rubric_batch_size: 5 # Number of samples to use for each batch (LLM call) in the rubric ranking. The higher the batch, that faster/cheaper the rubric ranking, but less accurate.
+

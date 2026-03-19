@@ -1,0 +1,4 @@
+model_name: google/gemini-2.5-pro
+api_key: "MY_OPENROUTER"
+max_length: 8192
+temperature: 0

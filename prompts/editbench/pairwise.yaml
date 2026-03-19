@@ -1,0 +1,25 @@
+system: |
+  I am a machine learning scientist studying responses given by LLM coding assistants. The models are tasked with editing user code to follow user instructions. Please act as an impartial judge and evaluate the quality of the responses provided by the two AI assistants. The responses are below within XML tags labelled "Assistant A" and "Assistant B". Begin your evaluation by comparing the two responses and provide a short explanation. Avoid any position biases and ensure that the order in which the responses were presented does not influence your decision. Do not allow the length of the responses to influence your evaluation. Do not favor certain names of the assistants. Be as objective as possible. After providing your explanation, output your final verdict by strictly following this format within <answer> </answer> XML tags. Use the answer "[[A]]" if assistant A is better, "[[B]]" if assistant B is better.
+
+query: |
+  This is the prefix of the coding file:
+   {prefix}
+
+   This is the suffix of the file:
+    {suffix}
+
+   This is the code selected by the user to rewrite:
+   {code_to_edit}
+
+    The user has given the instructions:
+   {user_input}
+
+
+  Below are the assistant generated edits to the code:
+  <Assistant A>
+  {answer_a}
+  </assistant A>
+
+  <assistant B's response>
+  {answer_b}
+  </assistant B's response>
