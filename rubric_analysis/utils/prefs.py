@@ -156,8 +156,3 @@ def fit_multi_rubric_logit(
             })
     
     return pd.DataFrame(rows).sort_values("coef_preference", ascending=False)
-
-
-# Backward-compatible aliases.
-build_multi_vibe_alignment_training_data = build_multi_rubric_alignment_training_data
-fit_multi_vibe_logit = fit_multi_rubric_logit
